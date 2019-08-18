@@ -5,11 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "nodemonConfig": {
-      "ignore": [
-        "data/*"
-      ]
-    }
+    "server": "node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "Valeria Ragonese",
   "license": "ISC",
